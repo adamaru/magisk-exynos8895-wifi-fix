@@ -1,0 +1,5 @@
+# Allow NetworkStack to read /sys/devices/virtual/net/wlan0/mtu for APF packet filter compilation
+# sysfs_virtual grants are strictly omitted to enforce least privilege across all virtual sysfs nodes.
+# Persistent relabeling of /sys/devices/virtual/net to sysfs_net:s0 is handled by service.sh.
+allow network_stack sysfs_net dir { search read open getattr }
+allow network_stack sysfs_net file { read open getattr }

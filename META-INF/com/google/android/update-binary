@@ -1,0 +1,38 @@
+#!/sbin/sh
+##########################################################################################
+#
+# Magisk / KernelSU / APatch Module Installer Script for Custom Recovery (TWRP/OrangeFox)
+#
+##########################################################################################
+
+umask 022
+
+ui_print() {
+  echo "$1"
+}
+
+require_root() {
+  ui_print "***************************************************"
+  ui_print " Please install Magisk v20.4+, KernelSU, or APatch! "
+  ui_print "***************************************************"
+  exit 1
+}
+
+OUTFD=$2
+ZIPFILE=$3
+
+mount /data 2>/dev/null
+
+if [ -f /data/adb/ksu/util_functions.sh ]; then
+  . /data/adb/ksu/util_functions.sh
+elif [ -f /data/adb/magisk/util_functions.sh ]; then
+  . /data/adb/magisk/util_functions.sh
+  [ "$MAGISK_VER_CODE" -lt 20400 ] 2>/dev/null && require_root
+elif [ -f /data/adb/ap/util_functions.sh ]; then
+  . /data/adb/ap/util_functions.sh
+else
+  require_root
+fi
+
+install_module
+exit 0

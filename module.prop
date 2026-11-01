@@ -1,0 +1,7 @@
+id=exynos-8895-wifi-battery-fix
+name=Samsung Exynos 8895 Wi-Fi & Battery Drain Fix
+version=v1.0.0
+versionCode=100
+author=adamaru
+description=Fixes Broadcom WifiHAL RSSI monitoring spin-loop (38% CPU), suppresses wpa_supplicant verbose debug logging, and restores NetworkStack APF packet filter permissions on Samsung Exynos 8895 devices.
+updateJson=https://raw.githubusercontent.com/adamaru/magisk-exynos8895-wifi-fix/main/update.json

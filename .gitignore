@@ -1,0 +1,9 @@
+# Build artifacts
+dist/
+*.zip
+
+# Editor and temporary files
+*.swp
+*.swo
+*~
+.DS_Store
